@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Effects</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #box {
+            width: 400px;
+            height: 100px;
+            background-color: lightblue;
+            text-align: center;
+            line-height: 100px;
+            margin: 20px auto;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            color: black;
+        }
+        button , input {
+            display: inline;
+            height: 50px;
+            width: 20%;
+            margin: 10px auto;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #one{
+            height: 100px;
+            width: 100px;
+            background-color: lightgreen;
+            border-radius: 50%;
+        }
+        #two{
+            height: 100px;
+            width: 100px;
+            background-color: rgb(249, 58, 51);
+            border-radius: 50%;
+        }
+        #three{
+            height: 100px;
+            width: 100px;
+            background-color: rgb(128, 180, 245);
+            border-radius: 50%;
+        }
+        .cont{
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;  
+                  
+        }
+    </style>
+</head>
+<body>
+
+    <div id="box">cabdiraxman cali axmed</div>
+    <input type="text" id="text">
+    <button id="add">change text</button>
+    <button id="changeColor">Change Color</button>
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">toggle</button>
+    <button id="fadeIn">Fade In</button>
+    <button id="fadeOut">Fade Out</button>
+    <button id="slideUp">Slide Up</button>
+    <button id="slideDown">Slide Down</button>
+    
+    <div class="cont">
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $("#add").click(function(){
+                let result = document.getElementById("text").value
+                $("#box").html(""+result)
+            })
+            $("#hide").click(function(){
+                $("#box").hide();
+            });
+
+            $("#show").click(function(){
+                $("#box").show();
+            });
+            $("#toggle").click(function(){
+                $("#box").toggle(500);
+            });
+
+            $("#fadeIn").click(function(){
+                $("#box").fadeIn();
+            });
+
+            $("#fadeOut").click(function(){
+                $("#box").fadeOut();
+            });
+
+            $("#slideUp").click(function(){
+                $("#box").slideUp();
+            });
+
+            $("#slideDown").click(function(){
+                $("#box").slideDown();
+            });
+
+            $("#changeText").click(function(){
+                $("#box").text("Text Changed!");
+            });
+
+            $("#changeColor").click(function(){
+                let colors = ["red", "green", "blue", "purple", "orange"];
+                let randomColor = colors[Math.floor(Math.random() * colors.length)];
+                $("#box").css("color", randomColor);
+            });
+            $("#one").click(function(){
+                $(this).animate({
+                    height:"150px",
+                    width:"150px"
+                },1000)
+            })
+            $("#two").click(function(){
+                $(this).animate({
+                    marginLeft:"100px"
+                },1000)
+            })
+            $("#three").click(function(){
+                $(this).animate({
+                    marginTop:"50px"
+                },1000)
+            })
+        });
+    </script>
+
+</body>
+</html>
